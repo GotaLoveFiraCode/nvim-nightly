@@ -60,15 +60,15 @@ vim.keymap.set('n', '<leader>o<leader>', function()
 end) -- }}}
 
 -- {{{ keymaps…
-vim.keymap.set('n', '}', '}zz')
-vim.keymap.set('n', '{', '{zz')
+-- vim.keymap.set('n', '}', '}zz')
+-- vim.keymap.set('n', '{', '{zz')
 vim.keymap.set('n', '<C-I>', vim.cmd.bn)
 vim.keymap.set('n', '<C-s>', vim.cmd.w)
 vim.keymap.set('n', '<C-Q>', vim.cmd.bd)
 vim.keymap.set('n', '<C-l>', vim.cmd.noh)
 vim.keymap.set({'n', 'v'}, '<C-p>', '"+')
-vim.keymap.set('n', '0', '^')
-vim.keymap.set('n', '^', '0')
+-- vim.keymap.set('n', '0', '^')
+-- vim.keymap.set('n', '^', '0')
 vim.keymap.set('n', 'g-', ':')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 -- }}}
