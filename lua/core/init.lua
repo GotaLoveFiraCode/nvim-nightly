@@ -26,7 +26,7 @@ vim.opt.bg = 'dark'
 vim.opt.tags = './tags;$HOME'
 vim.opt.title = true
 vim.opt.fde = 'nvim_treesitter#foldexpr()'
-vim.opt.cmdheight = 0
+-- vim.opt.cmdheight = 0
 -- vim.opt.fdm = 'marker'
 -- vim.opt.fdc='auto:3'
 -- vim.o.fillchars = [[foldopen:▼,foldclose:⏵,foldsep: ]]
@@ -60,9 +60,6 @@ vim.keymap.set('n', '<leader>o<leader>', function()
 end) -- }}}
 
 -- {{{ keymaps…
--- vim.keymap.set('n', '}', '}zz')
--- vim.keymap.set('n', '{', '{zz')
-vim.keymap.set('n', '<C-I>', vim.cmd.bn)
 vim.keymap.set('n', '<C-s>', vim.cmd.w)
 vim.keymap.set('n', '<C-Q>', vim.cmd.bd)
 vim.keymap.set('n', '<C-l>', vim.cmd.noh)
