@@ -12,6 +12,15 @@ return {
 			},
 			matchup = {
 				enable = true,
+			},
+			textsubjects = {
+				enable = true,
+				-- prev_selection = ',',
+				keymaps = {
+					['.'] = 'textsubjects-smart',
+					[';'] = 'textsubjects-container-outer',
+					[','] = 'textsubjects-container-inner',
+				}
 			}
 		})
 	end,

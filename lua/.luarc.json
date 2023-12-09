@@ -58,5 +58,8 @@
         "/home/ltr/.local/share/nvim-nightly/lazy/indent-o-matic/lua",
         "/home/ltr/.config/nvim-nightly/lua",
         "${3rd}/luv/library"
+    ],
+    "diagnostics.disable": [
+        "missing-fields"
     ]
 }
