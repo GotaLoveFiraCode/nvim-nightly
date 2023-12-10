@@ -25,7 +25,7 @@ return {
 				-- 	lsp = true -- highlight definition of word.
 				-- },
 
-				treesitter_context = true,
+				-- treesitter_context = true,
 				lsp_trouble = true,
 				leap = true,
 				fidget = true,
