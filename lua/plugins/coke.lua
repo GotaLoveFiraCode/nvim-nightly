@@ -24,7 +24,7 @@ return {
 			-- Only show the bufferline when there are at least this many visible buffers.
 			-- default: `1`.
 			---@type integer
-			show_if_buffers_are_at_least = 1,
+			show_if_buffers_are_at_least = 2,
 
 			buffers = {
 				new_buffers_position = 'number'
