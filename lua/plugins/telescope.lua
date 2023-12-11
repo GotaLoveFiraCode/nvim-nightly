@@ -11,7 +11,7 @@ return {
 
 	keys = { -- {{{
 		{ '<Leader><Return>', "<CMD>Telescope frecency workspace=CWD<CR>" },
-		{ '<Leader><Leader>', "<CMD>Telescope frecency<CR>" },
+		{ '<Leader><Leader><Return>', "<CMD>Telescope frecency<CR>" },
 		{ '<Leader>tr', require 'telescope.builtin'.git_files  },
 		{ '<Leader>ts', require 'telescope.builtin'.find_files },
 		{ '<Leader>tn', require 'telescope.builtin'.live_grep  },

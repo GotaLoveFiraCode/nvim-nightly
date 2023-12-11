@@ -134,7 +134,7 @@ return {
 
 		vim.keymap.set ( -- {{{
 			{ "i", "s" },
-			"<C-l>",
+			"<leader>l",
 			function()
 				require 'luasnip'.jump(1)
 			end,
