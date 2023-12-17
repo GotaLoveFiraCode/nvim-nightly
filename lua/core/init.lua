@@ -21,7 +21,10 @@ vim.opt.cc  = "80"
 vim.opt.bri = true
 vim.opt.udf = true
 vim.opt.wrap = false
-vim.opt.bg = 'dark'
+
+vim.opt.bg = 'dark' -- set background to dark
+vim.opt.tgc = true
+
 -- vim.opt.completeopt = { 'menu', 'menuone', 'noinsert' }
 vim.opt.tags = './tags;$HOME'
 vim.opt.title = true
@@ -33,6 +36,8 @@ vim.opt.fde = 'nvim_treesitter#foldexpr()'
 -- vim.o.statuscolumn = '%=%l%s%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "▼" : "⏵") : " " }'
 -- vim.o.statuscolumn='%=%l%s%{foldlevel(v:lnum) > 0 ? (foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "▼" : "⏵") : "│") : " " }'
 -- }}}
+
+-- vim.cmd.set('t_ut=')
 
 -- Remove bg from folds
 vim.api.nvim_set_hl(0, 'Folded', {bg = nil, fg = '#89b4fa'})

@@ -77,7 +77,7 @@ return {
 			end, -- }}}
 		})
 
-		-- integrate cmp
+		-- integrate cmp {{{
 		require 'lspconfig'.util.default_config = vim.tbl_deep_extend("force",
 			require 'lspconfig'.util.default_config,
 			{ capabilities = require 'cmp_nvim_lsp'.default_capabilities() })
@@ -89,6 +89,7 @@ return {
 			end,
 		}
 		require('lspconfig').ccls.setup {}
+		-- }}}
 
 		local notify = vim.notify
 		vim.notify = function(msg, ...)
