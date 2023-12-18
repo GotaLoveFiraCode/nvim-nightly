@@ -3,5 +3,5 @@ return {
 	config = function()
 		require 'true-zen'.setup { integrations = { tmux = true } }
 	end,
-	lazy = false,
+	cmd = { "TZAtaraxis", "TZFocus", "TZNarrow", "TZMinimalist" }
 }
