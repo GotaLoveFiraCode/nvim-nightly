@@ -27,9 +27,11 @@ return {
 
 		config = function()
 			require 'cinnamon'.setup {
+				default_keymaps = false,
 				extra_keymaps = true,
-				scroll_limit = 100,
 				always_scroll = true,
+				max_length = 50,
+				scroll_limit = -1,
 			}
 		end,
 
@@ -38,10 +40,13 @@ return {
 			'G',
 			'{',
 			'}',
+			'0',
+			'^',
+			'$',
 			'n',
 			'N',
 			'#',
-			'*',
+			'*'
 		}
 	} -- }}}
 }
