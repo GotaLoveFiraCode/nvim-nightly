@@ -12,11 +12,11 @@ return {
 			-- show_end_of_buffer = true,
 
 			styles = { -- {{{
-				-- keywords = { "bold" },
-				-- properties = { "italic" },
 				functions = { "bold" },
 				loops = { "italic" },
 				types = { "italic" },
+				conditionals = { "italic" },
+				booleans = { "italic" },
 			}, -- }}}
 
 			integrations = { -- {{{

@@ -1,10 +1,7 @@
 ---@diagnostic disable: need-check-nil, return-type-mismatch
 return {
 	'willothy/nvim-cokeline',
-	dependencies = {
-		'nvim-lua/plenary.nvim',
-		'nvim-tree/nvim-web-devicons',
-	},
+	dependencies = { 'nvim-lua/plenary.nvim' },
 	event = { 'BufRead', 'BufNewFile', 'BufWrite' },
 	keys = {
 		{ '<leader>bf', function() require 'cokeline.mappings'.pick('focus') end },
