@@ -1,12 +1,15 @@
 ---@diagnostic disable: missing-fields
 return {
 	"hrsh7th/nvim-cmp",
-	event = { 'CmdlineEnter', 'InsertEnter' },
+	event = 'InsertEnter',
 
 	dependencies = { -- {{{
 		{ 'hrsh7th/cmp-buffer' },
 		{ 'hrsh7th/cmp-path' },
+
+		-- SUUUUUPER big performance costs
 		{ 'lukas-reineke/cmp-rg' },
+
 		{ 'ray-x/cmp-treesitter' },
 		{ 'onsails/lspkind.nvim' },
 		{ 'saadparwaiz1/cmp_luasnip' },
@@ -69,7 +72,7 @@ return {
 					{ name = 'treesitter', keyword_length = 2 },
 				},
 				{
-					{ name = 'rg' },
+					{ name = 'rg', keyword_length = 3 },
 					{ name = 'buffer' },
 				}
 			), -- }}}

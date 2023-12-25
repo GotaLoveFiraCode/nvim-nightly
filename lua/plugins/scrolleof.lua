@@ -3,5 +3,5 @@ return {
 	config = function()
 		require 'scrollEOF'.setup()
 	end,
-	event = { 'BufReadPost', 'BufNewFile' }
+	event = { 'BufRead', 'BufNewFile' }
 }

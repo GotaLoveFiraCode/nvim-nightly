@@ -5,5 +5,5 @@ return {
 			mapping = { 'ii' }
 		}
 	end,
-	event = 'InsertEnter'
+	event = 'InsertCharPre'
 }

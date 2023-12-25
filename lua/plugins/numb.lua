@@ -1,5 +1,5 @@
 return {
 	'nacro90/numb.nvim',
-	event = 'BufReadPost',
+	event = 'CmdlineEnter',
 	config = true
 }

@@ -5,6 +5,12 @@ return {
 		'nvim-lua/plenary.nvim'
 	},
 
+	keys = {
+		{ '<C-up>', '<Plug>(CybuPrev)' },
+		{ '<C-down>', '<Plug>(CybuNext)' },
+		{ '<C-I>',     '<Plug>(CybuLastusedNext)', mode = { 'n', 'v' } }
+	},
+
 	config = function()
 
 		-- local ok, cybu = pcall(require, 'cybu')
@@ -42,11 +48,5 @@ return {
 				},
 			},
 		}
-	end,
-
-	keys = {
-		{ '<C-up>', '<Plug>(CybuPrev)' },
-		{ '<C-down>', '<Plug>(CybuNext)' },
-		{ '<C-I>',     '<Plug>(CybuLastusedNext)', mode = { 'n', 'v' } }
-	}
+	end
 }

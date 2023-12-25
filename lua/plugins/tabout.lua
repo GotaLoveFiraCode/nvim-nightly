@@ -1,5 +1,6 @@
 return {
 	'abecodes/tabout.nvim',
+	enabled = false,
 	opts = {
 		tabkey = '<Tab>',
 		backwards_tabkey = '<S-Tap>',

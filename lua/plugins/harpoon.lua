@@ -1,8 +1,8 @@
 return {
 	'ThePrimeagen/harpoon',
+	enabled = false,
 	branch = 'harpoon2',
 	dependencies = { 'nvim-lua/plenary.nvim' },
-	enabled = false,
 
 	keys = {
 		-- This basically means harpoon is a set of reserved marks.

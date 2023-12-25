@@ -6,6 +6,6 @@ return {
 			pair_spaces = true
 		}
 	},
-	event = 'InsertEnter',
+	event = 'InsertCharPre',
 }
 

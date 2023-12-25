@@ -35,7 +35,7 @@ return {
 			}
 		} -- }}}
 
-		require 'telescope'.load_extension 'fzf' -- fzf keybinds, speed
+		require 'telescope'.load_extension 'fzf' -- fzf syntax, speed
 		require 'telescope'.load_extension 'frecency' -- mozilla algo
 		require 'telescope'.load_extension 'file_browser' -- oil alternative
 	end, -- }}}

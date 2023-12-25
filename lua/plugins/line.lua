@@ -1,6 +1,5 @@
 return {
 	'rebelot/heirline.nvim',
-	-- lazy = false,
 	event = 'UIEnter',
 
 	dependencies = {-- {{{
