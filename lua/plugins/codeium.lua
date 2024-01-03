@@ -1,12 +1,15 @@
--- return {
--- 	'Exafunction/codeium.nvim',
--- 	-- event = 'InsertEnter',
--- 	event = { 'BufRead', 'BufNewFile' },
--- 	dependencies = {
--- 		'nvim-lua/plenary.nvim',
--- 		'hrsh7th/nvim-cmp',
--- 	},
--- 	config = true,
--- }
+return {
+	'Exafunction/codeium.nvim',
+	-- event = 'InsertEnter',
+	-- event = { 'BufRead', 'BufNewFile' },
 
-return {}
+	---: Because it’s so slow you need to give it some time.
+	event = 'VeryLazy',
+
+	-- dependencies = {
+	-- 	'nvim-lua/plenary.nvim',
+	-- 	'hrsh7th/nvim-cmp',
+	-- },
+
+	config = true
+}

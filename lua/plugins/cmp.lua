@@ -45,7 +45,7 @@ return {
 				fields = { 'menu', 'abbr', 'kind' },
 				format = require 'lspkind'.cmp_format {
 					mode = 'symbol_text',
-					-- symbol_map = { Codeium = "", },
+					symbol_map = { Codeium = "", },
 					menu = {
 						nvim_lsp_signature_help = '[SIG]',
 						nvim_lsp = '[LSP]',
@@ -55,7 +55,7 @@ return {
 						path = '[PTH]',
 						rg = '[RGP]',
 						buffer = '[BUF]',
-						-- codeium = '[CDM]'
+						codeium = '[CDM]'
 					}
 				}
 			}, -- }}}
@@ -67,8 +67,9 @@ return {
 				},
 				{
 					{ name = 'nvim_lua' },
-					{ name = 'nvim_lsp', keyword_length = 2 },
-                    { name = 'luasnip', priority = 3 },
+					{ name = 'codeium' },
+					{ name = 'nvim_lsp',   priority = 3, keyword_length = 2 },
+                    { name = 'luasnip',    priority = 4 },
 					{ name = 'treesitter', keyword_length = 2 },
 				},
 				{

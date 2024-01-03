@@ -9,7 +9,7 @@ table.insert(M, {
 
 table.insert(M, {
 	'hrsh7th/cmp-nvim-lua',
-	event = 'InsertEnter *.lua',
+	ft = 'lua',
 	dependencies = { 'hrsh7th/nvim-cmp' }
 })
 
