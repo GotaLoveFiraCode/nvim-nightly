@@ -1,5 +1,4 @@
 return {
-
 	{ -- {{{ Old scroll plugin
 		'karb94/neoscroll.nvim',
 
@@ -24,6 +23,7 @@ return {
 
 	{ -- {{{ other scroll plugin
 		'declancm/cinnamon.nvim',
+		enabled = false,
 
 		config = function()
 			require 'cinnamon'.setup {
@@ -48,6 +48,7 @@ return {
 			'#',
 			'*'
 		}
+
 	} -- }}}
 }
 
