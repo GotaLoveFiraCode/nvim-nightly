@@ -6,7 +6,7 @@ return {
 
 	config = function() -- {{{
 		require'catppuccin'.setup {
-			-- flavour = "mocha",
+			flavour = "mocha",
 			-- transparent_background = false,
 			-- term_colors = true,
 			-- show_end_of_buffer = true,
@@ -22,7 +22,7 @@ return {
 			integrations = { -- {{{
 
 				-- illuminate = {
-				-- 	lsp = true -- highlight definition of word.
+				--	lsp = true -- highlight definition of word.
 				-- },
 
 				-- treesitter_context = true,

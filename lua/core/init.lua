@@ -18,41 +18,39 @@ vim.opt.ut  = 300
 vim.opt.to  = true
 vim.opt.tm  = 300
 vim.opt.cc  = "80"
-vim.opt.bri = true
 vim.opt.udf = true
 vim.opt.wrap = false
-
-vim.opt.bg = 'dark' -- set background to dark
+vim.opt.bri = true -- causes indent-blankline to break if true (in some ver.)
+vim.opt.bg = 'dark'
 vim.opt.tgc = true
-
--- vim.opt.completeopt = { 'menu', 'menuone', 'noinsert' }
 vim.opt.tags = './tags;$HOME'
 vim.opt.title = true
 vim.opt.fde = 'nvim_treesitter#foldexpr()'
--- vim.opt.cmdheight = 0
+
 -- vim.opt.fdm = 'marker'
+-- vim.opt.cmdheight = 0
+-- vim.opt.completeopt = { 'menu', 'menuone', 'noinsert' }
 -- vim.opt.fdc='auto:3'
 -- vim.o.fillchars = [[foldopen:▼,foldclose:⏵,foldsep: ]]
 -- vim.o.statuscolumn = '%=%l%s%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "▼" : "⏵") : " " }'
 -- vim.o.statuscolumn='%=%l%s%{foldlevel(v:lnum) > 0 ? (foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "▼" : "⏵") : "│") : " " }'
 -- }}}
 
--- vim.cmd.set('t_ut=')
-
 -- Remove bg from folds
 vim.api.nvim_set_hl(0, 'Folded', {bg = nil, fg = '#89b4fa'})
 
--- {{{ <leader>oa == fold paragraph/open fold
-vim.keymap.set('n', '<leader>o', function()
+-- <leader>oo == fold paragraph/open fold {{{
+vim.keymap.set('n', '<leader>oo', function()
 	local foldclosed = vim.fn.foldclosed(vim.fn.line("."))
 	if foldclosed == -1 then
 		vim.cmd([[silent! normal! zfip]])
 	else
 		vim.cmd("silent! normal! zo")
 	end
-end) -- }}}
+end)
+-- }}}
 
--- {{{ <leader>on == switch foldmethod
+-- {{{ <leader>o<leader> == switch foldmethod
 vim.keymap.set('n', '<leader>o<leader>', function()
 	if vim.o.foldmethod == 'manual' then
 		vim.opt.foldmethod = 'marker'
@@ -62,21 +60,22 @@ vim.keymap.set('n', '<leader>o<leader>', function()
 		vim.opt.foldmethod = 'manual'
 	end
 	print(vim.cmd.set("foldmethod?"))
-end) -- }}}
+end)
+-- }}}
 
--- {{{ keymaps…
+-- keymaps… {{{
 vim.keymap.set('n', '<C-s>', vim.cmd.w)
-vim.keymap.set('n', '<A-l>', vim.cmd.noh)
+vim.keymap.set('n', '<M-u>', vim.cmd.noh)
 vim.keymap.set({'n', 'v'}, '<C-p>', '"+')
 vim.keymap.set('n', 'g-', ':')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 -- }}}
 
--- for front-end neovide, nvim ignores this
+-- for front-end neovide, nvim ignores this {{{
 if vim.g.neovide then
 	vim.o.guifont = "JetBrainsMono Nerd Font:h14:#e-subpixelantialias:#h-full"
 	vim.opt.linespace = 1
-	-- vim.g.neovide_padding_top = 4
+	 vim.g.neovide_padding_top = 4
 	vim.g.neovide_floating_blur_amount_x = 2.0
 	vim.g.neovide_floating_blur_amount_y = 2.0
 	vim.g.neovide_hide_mouse_when_typing = true
@@ -85,3 +84,4 @@ if vim.g.neovide then
 	vim.g.neovide_cursor_antialiasing = true
 	vim.g.neovide_cursor_vfx_mode = "pixiedust"
 end
+-- }}}

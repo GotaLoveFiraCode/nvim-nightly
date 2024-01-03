@@ -7,7 +7,7 @@ vim.g.mapleader = " "
 -- {{{
 require 'lazy'.setup("plugins", {
 	defaults = { lazy = true },
-	install = { colorscheme = { 'catppuccin', 'slate' } },
+	install = { colorscheme = { 'catppuccin', 'habamax' } },
 	checker = { enabled = true, concurrency = 1 },
 	performance = {
 		rtp = {

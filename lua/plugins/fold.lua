@@ -1,5 +1,6 @@
 return {
 	'anuvyklack/pretty-fold.nvim',
+	event = { 'BufReadPost', 'BufNewFile' },
 	config = function()
 		require("pretty-fold").setup({ fill_char = '·' })
 		require('pretty-fold').ft_setup('lua', {
@@ -14,6 +15,5 @@ return {
 				{ '%[', ']' }, -- % to escape lua pattern char
 			},
 		})
-	end,
-	event = { 'BufReadPost', 'BufNewFile' }
+	end
 }
