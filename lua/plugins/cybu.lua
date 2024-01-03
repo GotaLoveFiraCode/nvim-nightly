@@ -1,14 +1,17 @@
 return {
 	'ghillb/cybu.nvim',
+	-- this is a fantastic plugin, but with cokeline and all,
+	-- it’s kinda unnecessary.
+	enabled = false,
 	dependencies = {
 		'nvim-tree/nvim-web-devicons',
 		'nvim-lua/plenary.nvim'
 	},
 
 	keys = {
-		{ '<C-up>', '<Plug>(CybuPrev)' },
+		{ '<C-up>',   '<Plug>(CybuPrev)' },
 		{ '<C-down>', '<Plug>(CybuNext)' },
-		{ '<C-I>',     '<Plug>(CybuLastusedNext)', mode = { 'n', 'v' } }
+		{ '<C-I>',    '<Plug>(CybuLastusedNext)', mode = { 'n', 'v' } }
 	},
 
 	config = function()

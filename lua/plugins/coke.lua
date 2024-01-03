@@ -3,9 +3,12 @@ return {
 	'willothy/nvim-cokeline',
 	dependencies = { 'nvim-lua/plenary.nvim' },
 	event = { 'BufRead', 'BufNewFile', 'BufWrite' },
+
 	keys = {
-		{ '<leader>bf', function() require 'cokeline.mappings'.pick('focus') end },
-		{ '<leader>bc', function() require 'cokeline.mappings'.pick('close') end }
+		{ '<leader>bf', function() require 'cokeline.mappings'.pick('focus')        end },
+		{ '<leader>bc', function() require 'cokeline.mappings'.pick('close')        end },
+		{ '<C-right>',   function() require 'cokeline.mappings'.by_step('focus', 1)  end },
+		{ '<C-left>',  function() require 'cokeline.mappings'.by_step('focus', -1) end }
 	},
 
 	config = function()
@@ -23,9 +26,9 @@ return {
 			---@type integer
 			show_if_buffers_are_at_least = 2,
 
-			buffers = {
-				new_buffers_position = 'number'
-			},
+			-- buffers = {
+			-- 	new_buffers_position = 'number'
+			-- },
 
 			mappings = {
 				-- Disables mouse mappings
@@ -113,17 +116,17 @@ return {
 					italic = true
 				},
 				{
-					text = function(buffer) return buffer.filename .. ' ' end,
-					underline = function(buffer)
-						return buffer.is_hovered and not buffer.is_focused
-					end,
+					-- text = function(buffer) return buffer.filename .. ' ' end
+					text = function(buffer) return buffer.filename end
 				},
-				{
-					text = '×',
-					on_click = function(_, _, _, _, buffer)
-						buffer:delete()
-					end
-				},
+
+				-- {
+				-- 	text = '×',
+				-- 	on_click = function(_, _, _, _, buffer)
+				-- 		buffer:delete()
+				-- 	end
+				-- },
+
 				{
 					text = ' ',
 				}
