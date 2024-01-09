@@ -18,11 +18,10 @@ vim.opt.ut  = 300
 vim.opt.to  = true
 vim.opt.tm  = 300
 vim.opt.cc  = "80"
+vim.opt.bri = true -- causes indent-blankline to break if true (in some ver.)
 vim.opt.udf = true
 vim.opt.wrap = false
-vim.opt.bri = true -- causes indent-blankline to break if true (in some ver.)
 vim.opt.bg = 'dark'
-vim.opt.tgc = true
 vim.opt.tags = './tags;$HOME'
 vim.opt.title = true
 vim.opt.fde = 'nvim_treesitter#foldexpr()'
@@ -67,8 +66,14 @@ end)
 vim.keymap.set('n', '<C-s>', vim.cmd.w)
 vim.keymap.set('n', '<M-u>', vim.cmd.noh)
 vim.keymap.set({'n', 'v'}, '<C-p>', '"+')
+
 vim.keymap.set('n', 'g-', ':')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+
+vim.keymap.set('n', '}', '}zz')
+vim.keymap.set('n', '{', '{zz')
+vim.keymap.set('n', '0', '^')
+vim.keymap.set('n', '^', '0')
 -- }}}
 
 -- for front-end neovide, nvim ignores this {{{
