@@ -45,7 +45,7 @@ return {
 				fields = { 'menu', 'abbr', 'kind' },
 				format = require 'lspkind'.cmp_format {
 					mode = 'symbol_text',
-					symbol_map = { Codeium = "", },
+					symbol_map = { Codeium = "", TabNine = "", },
 					menu = {
 						nvim_lsp_signature_help = '[SIG]',
 						nvim_lsp = '[LSP]',
@@ -55,7 +55,8 @@ return {
 						path = '[PTH]',
 						rg = '[RGP]',
 						buffer = '[BUF]',
-						codeium = '[CDM]'
+						codeium = '[CDM]',
+						cmp_tabnine = '[TB9]',
 					}
 				}
 			}, -- }}}
@@ -67,9 +68,10 @@ return {
 				},
 				{
 					{ name = 'nvim_lua' },
+					{ name = 'cmp_tabnine' },
 					{ name = 'codeium' },
-					{ name = 'nvim_lsp',   priority = 3, keyword_length = 2 },
-                    { name = 'luasnip',    priority = 4 },
+					{ name = 'nvim_lsp',   priority = 2, keyword_length = 2 },
+                    { name = 'luasnip',    priority = 3 },
 					{ name = 'treesitter', keyword_length = 2 },
 				},
 				{
@@ -92,9 +94,6 @@ return {
 
 					-- score, i.e. priority, order, etc.
 					cmp.config.compare.score,
-
-					-- does clangd like it ...
-					-- require 'clangd_extensions.cmp_scores',
 
 					-- don’t start with _
 					function(entry1, entry2) -- {{{
