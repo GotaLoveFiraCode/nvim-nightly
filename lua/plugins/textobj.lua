@@ -1,5 +1,8 @@
 return {
 	'chrisgrieser/nvim-various-textobjs',
 	event = 'CursorHold',
-	opts = { useDefaultKeymaps = true }
+	opts = {
+		useDefaultKeymaps = true,
+		disabledkeymaps = { "gc", "ic" }
+	}
 }
