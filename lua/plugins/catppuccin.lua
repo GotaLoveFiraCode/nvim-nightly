@@ -14,7 +14,7 @@ return {
 			styles = { -- {{{
 				functions = { "bold" },
 				loops = { "italic" },
-				types = { "italic" },
+				-- types = { "italic" },
 				conditionals = { "italic" },
 				booleans = { "italic" },
 			}, -- }}}
