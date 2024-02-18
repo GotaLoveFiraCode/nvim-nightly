@@ -22,11 +22,11 @@ table.insert(M, {
 	},
 })
 
-table.insert(M, {
-	'tzachar/cmp-tabnine',
-	build = './install.sh',
-	dependencies = 'hrsh7th/nvim-cmp',
-	event = 'VeryLazy'
-})
+-- table.insert(M, {
+-- 	'tzachar/cmp-tabnine',
+-- 	build = './install.sh',
+-- 	dependencies = 'hrsh7th/nvim-cmp',
+-- 	event = 'VeryLazy'
+-- })
 
 return M
