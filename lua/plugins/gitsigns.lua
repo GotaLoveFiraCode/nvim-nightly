@@ -1,6 +1,7 @@
 return {
 	'lewis6991/gitsigns.nvim',
-	opts = { current_line_blame = true },
+	-- opts = { current_line_blame = true },
+	config = true,
 	event = { 'BufReadPost', 'BufNewFile' },
 	keys = {
 		{ ']c', function() require('gitsigns').next_hunk() end },

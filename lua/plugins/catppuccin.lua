@@ -7,16 +7,19 @@ return {
 	config = function() -- {{{
 		require'catppuccin'.setup {
 			flavour = "mocha",
-			-- transparent_background = false,
+			-- transparent_background = true,
 			-- term_colors = true,
 			-- show_end_of_buffer = true,
 
 			styles = { -- {{{
-				functions = { "bold" },
-				loops = { "italic" },
-				-- types = { "italic" },
+
+				loops = { "bold" },
 				conditionals = { "italic" },
-				booleans = { "italic" },
+				booleans = { "bold" },
+
+				-- properties = { "italic" },
+				-- types = { "italic" },
+
 			}, -- }}}
 
 			integrations = { -- {{{
