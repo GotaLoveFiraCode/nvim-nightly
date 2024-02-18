@@ -1,63 +1,127 @@
 return {
-	"simrat39/rust-tools.nvim",
+	-- "simrat39/rust-tools.nvim",
+	'mrcjkb/rustaceanvim',
 	ft = 'rust',
+	version = '^4',
 
 	dependencies = { -- {{{
-		{ 'neovim/nvim-lspconfig' },
+		{ 'mfussenegger/nvim-dap' },
 		{ 'nvim-lua/plenary.nvim' },
-		{ 'j-hui/fidget.nvim', config = true }
+		{ 'j-hui/fidget.nvim', config = true },
+		{ 'lvimuser/lsp-inlayhints.nvim', config = function()
+			require 'lsp-inlayhints'.setup()
+			require 'lsp-inlayhints'.show()
+		end},
+		{ 'dgagn/diagflow.nvim', config = true },
 	}, -- }}}
 
-	config = function() -- {{{
-		local rt = require'rust-tools'
-
-		rt.setup { -- {{{
-			tools = { inlay_hints = { only_current_line = true } },
-
+	init = function()
+		vim.g.rustaceanvim = {
+			---@type RustaceanLspClientOpts
 			server = {
-				capabilities = require'cmp_nvim_lsp'.default_capabilities(),
-				on_attach = function(_, bufnr)
-					vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
-					vim.keymap.set("n", "<leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
-					vim.keymap.set("n", "<leader>R", rt.runnables.runnables, { buffer = bufnr })
+				on_attach = function(client, bufnr)
+					local opts = { buffer = bufnr, silent = true }
+					local tr = require("trouble")
+
+					vim.keymap.set(
+						'n',
+						'<leader>ca',
+						function()
+							vim.cmd.RustLsp('codeAction')
+						end,
+					opts)
+
+					-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+					vim.keymap.set('n', '<leader>e', function()
+						vim.cmd.RustLsp('renderDiagnostic')
+					end)
+					vim.keymap.set('n', '<leader>xx', function()
+						vim.cmd.RustLsp('explainError')
+					end)
+					vim.keymap.set('n', '<leader>q', function()
+						tr.toggle('workspace_diagnostics')
+					end)
+
+					vim.keymap.set('n', 'gd', function() -- {{{ Trouble & Telescope
+						tr.toggle('lsp_definitions')
+						end, opts)
+					vim.keymap.set('n', '<leader>D', function()
+						tr.toggle('lsp_type_definitions')
+						end, opts)
+					vim.keymap.set('n', 'gr', function()
+						tr.toggle('lsp_references')
+						end, opts)
+					-- }}}
+
+					-- {{{ Normal mappings
+					vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+					vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+					vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+					vim.keymap.set('n', '<leader>kk', vim.lsp.buf.signature_help, opts)
+					vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+					-- }}}
+
+					vim.keymap.set( -- {{{ workspace management
+						'n',
+						'<leader>wa',
+						vim.lsp.buf.add_workspace_folder,
+					opts)
+					vim.keymap.set(
+						'n',
+						'<leader>wr',
+						vim.lsp.buf.remove_workspace_folder,
+					opts)
+					vim.keymap.set('n', '<leader>wl', function()
+						print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+						end,
+					opts) -- }}}
+
+					vim.keymap.set('n', '<leader>lf', function() -- {{{ format
+						vim.lsp.buf.format { async = true }
+						end,
+					opts) -- }}}
+
+					vim.keymap.set(
+						'n', '<leader>R',
+						function()
+							vim.cmd.RustLsp('runnables')
+						end,
+					opts)
+
+					vim.keymap.set(
+						'n', '<leader>uu',
+					function()
+							vim.cmd.RustLsp { 'moveItem', 'up' }
+						end,
+					opts)
+					vim.keymap.set(
+						'n', '<leader>dd',
+					function()
+							vim.cmd.RustLsp { 'moveItem', 'down' }
+						end,
+					opts)
+
+					vim.keymap.set("n", "<leader>dc", function()
+						require'dap'.continue()
+					end)
+					vim.keymap.set("n", "<leader>dr", function()
+						require('dap').run_last()
+					end)
+					vim.keymap.set("n", "<leader>dn", function()
+						require('dap').toggle_breakpoint()
+					end)
 				end,
-				settings = {
-					["rust-analyzer"] = {
 
-						-- cargo = {
-						-- 	allFeatures = true,
-						-- 	loadOutDirsFromCheck = true,
-						-- 	runBuildScripts = true,
-						-- },
-
-						checkOnSave = {
-							-- allFeatures = true,
-							command = 'clippy',
-
-							extraArgs = {
-								'--',
-								'--no-deps',
-								'-Wclippy::pedantic',
-							},
-
-						},
-
-						-- procMacro = {
-						-- 	enable = true,
-						-- 	ignored = {
-						-- 		["async-trait"] = { "async_trait" },
-						-- 		["napi-derive"] = { "napi" },
-						-- 		["async-recursion"] = { "async_recursion" },
-						-- 	},
-						-- },
-
-					},
-				},
+				-- settings = {
+				-- 	['rust-analyzer'] = {
+				-- 		procMacro = {
+				-- 			-- server = "/home/ltr/.local/share/rustup/toolchains/stable-x86_64-unknown-linux-gnu/libexec/rust-analyzer-proc-macro-srv"
+				-- 			--server = "/home/ltr/.local/share/rustup/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/libexec/rust-analyzer-proc-macro-srv"
+				-- 		}
+				-- 	}
+				-- },
 			},
-		} -- }}}
-
-		rt.inlay_hints.enable()
-	end -- }}}
+		}
+	end
 }
-
 
