@@ -111,15 +111,6 @@ return {
 						require('dap').toggle_breakpoint()
 					end)
 				end,
-
-				-- settings = {
-				-- 	['rust-analyzer'] = {
-				-- 		procMacro = {
-				-- 			-- server = "/home/ltr/.local/share/rustup/toolchains/stable-x86_64-unknown-linux-gnu/libexec/rust-analyzer-proc-macro-srv"
-				-- 			--server = "/home/ltr/.local/share/rustup/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/libexec/rust-analyzer-proc-macro-srv"
-				-- 		}
-				-- 	}
-				-- },
 			},
 		}
 	end
