@@ -1,9 +1,13 @@
+-- I’ll convert this to fennel when I have time.
+--
+--
+--
 -- General Settings (i.e. vim.opt) {{{
 vim.opt.scs = true
 vim.opt.sta = true
 vim.opt.si  = true
 vim.opt.ts  = 4
-vim.opt.et  = false
+vim.opt.et  = true
 vim.opt.sw  = 4
 vim.opt.nu  = true
 vim.opt.rnu = true
@@ -18,7 +22,7 @@ vim.opt.ut  = 300
 vim.opt.to  = true
 vim.opt.tm  = 300
 vim.opt.cc  = "80"
-vim.opt.bri = true -- causes indent-blankline to break if true (in some ver.)
+vim.opt.bri = true
 vim.opt.udf = true
 vim.opt.wrap = false
 vim.opt.bg = 'dark'

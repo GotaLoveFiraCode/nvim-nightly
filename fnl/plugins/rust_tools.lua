@@ -5,7 +5,12 @@ return {
 	version = '^4',
 
 	dependencies = { -- {{{
-		{ 'mfussenegger/nvim-dap' },
+		{ 'mfussenegger/nvim-dap', dependencies = {
+			{ 'nvim-treesitter/nvim-treesitter' },
+			{ 'theHamsta/nvim-dap-virtual-text', config = function()
+				require('nvim-dap-virtual-text').setup()
+			end},
+		}},
 		{ 'nvim-lua/plenary.nvim' },
 		{ 'j-hui/fidget.nvim', config = true },
 		{ 'lvimuser/lsp-inlayhints.nvim', config = function()
@@ -16,6 +21,13 @@ return {
 	}, -- }}}
 
 	init = function()
+		-- nvim-dap catppuccin integration.
+		local sign = vim.fn.sign_define
+
+		sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = ""})
+		sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = ""})
+		sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = ""})
+
 		vim.g.rustaceanvim = {
 			---@type RustaceanLspClientOpts
 			server = {
