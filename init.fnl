@@ -13,9 +13,23 @@
 (require :core)
 
 ; Old plugin configs in lua.
-(local alpha-plugin (require :plugins.alpha))
+;(local alpha-plugin (require :plugins.alpha))
 (local comment-plugin (require :plugins.comment))
 (local leap-plugin (require :plugins.leap))
+(local lspconfig-plugin (require :plugins.lspconfig))
+; Currently only catppuccin compatable.
+(local coke-plugin (require :plugins.coke))
+
+(local deadcolumn-plugin (require :plugins.deadcolumn))
+(local eyeliner-plugin (require :plugins.eyeliner))
+(local gitsigns-plugin (require :plugins.gitsigns))
+(local indent-lines-plugin (require :plugins.indent-lines))
+(local reticle-plugin (require :plugins.reticle))
+(local rustaceanvim-plugin (require :plugins.rust_tools))
+(local scroll-plugin (require :plugins.scroll))
+(local spider-plugin (require :plugins.spider))
+(local undotree-plugin (require :plugins.undotree))
+(local unimpaired-plugin (require :plugins.unimpaired))
 
 ;(local (sym (.. name :-plugin)) (require (.. ":plugins." (tostring name)))))
 
@@ -39,14 +53,14 @@
                                                                 "," :textsubjects-container-inner}}})))})
 
 ; LSP integration.
-(local nvim-lspconfig-plugin {1 :neovim/nvim-lspconfig
-                              :dependencies [:j-hui/fidget.nvim]
-                              :config (fn []
-                                        (map! [n] :<leader>e
-                                              vim.diagnostic.open_float)
-                                        ;(let [lspconfig (require :lspconfig)]
-                                        ;(lspconfig.fennel_ls.setup {}))
-                                        )})
+; (local nvim-lspconfig-plugin {1 :neovim/nvim-lspconfig
+;                               :dependencies [:j-hui/fidget.nvim]
+;                               :config (fn []
+;                                         (map! [n] :<leader>e
+;                                               vim.diagnostic.open_float)
+;                                         ;(let [lspconfig (require :lspconfig)]
+;                                         ;(lspconfig.fennel_ls.setup {}))
+;                                         )})
 
 ; Plugins
 (local plugins [:udayvir-singh/tangerine.nvim
@@ -63,10 +77,21 @@
                 {1 :m4xshen/autoclose.nvim
                  :opts {:options {:pair_spaces true}}
                  :event :VeryLazy}
-                nvim-lspconfig-plugin
-                alpha-plugin
+                lspconfig-plugin
+                ;alpha-plugin
                 comment-plugin
-                leap-plugin])
+                leap-plugin
+                ;coke-plugin
+                deadcolumn-plugin
+                eyeliner-plugin
+                gitsigns-plugin
+                ;indent-lines-plugin
+                reticle-plugin
+                rustaceanvim-plugin
+                scroll-plugin
+                spider-plugin
+                undotree-plugin
+                unimpaired-plugin])
 
 ; Set lazy.nvim up.
 (let [lazy (require :lazy)]
