@@ -40,7 +40,7 @@ vim.opt.fde = 'nvim_treesitter#foldexpr()'
 -- }}}
 
 -- Remove bg from folds
-vim.api.nvim_set_hl(0, 'Folded', {bg = nil, fg = '#89b4fa'})
+--vim.api.nvim_set_hl(0, 'Folded', {bg = nil, fg = '#89b4fa'})
 
 -- <leader>oo == fold paragraph/open fold {{{
 vim.keymap.set('n', '<leader>oo', function()

@@ -1,102 +1,30 @@
-;(require-macros :hibiscus.core)
-;(require-macros :hibiscus.vim)
-
-(import-macros {: map!} :hibiscus.vim)
+;; Import hibiscus macros to make life easier.
+;(import-macros {: map!} :hibiscus.vim)
 (import-macros {: exec!} :hibiscus.vim)
 (import-macros {: set+} :hibiscus.vim)
 (import-macros {: color!} :hibiscus.vim)
 
-; Mapleader needs to be set before lazy is setup.
+;; Mapleader needs to be set before lazy is setup.
 (exec! [let mapleader = " "])
 
-; Basic Vim settings. Plus a few keybinds, etc.
+;; Basic Vim settings. Plus a few keybinds, etc.
 (require :core)
 
-; Old plugin configs in lua.
-;(local alpha-plugin (require :plugins.alpha))
-(local comment-plugin (require :plugins.comment))
-(local leap-plugin (require :plugins.leap))
-(local lspconfig-plugin (require :plugins.lspconfig))
-; Currently only catppuccin compatable.
-(local coke-plugin (require :plugins.coke))
-
-(local deadcolumn-plugin (require :plugins.deadcolumn))
-(local eyeliner-plugin (require :plugins.eyeliner))
-(local gitsigns-plugin (require :plugins.gitsigns))
-(local indent-lines-plugin (require :plugins.indent-lines))
-(local reticle-plugin (require :plugins.reticle))
-(local rustaceanvim-plugin (require :plugins.rust_tools))
-(local scroll-plugin (require :plugins.scroll))
-(local spider-plugin (require :plugins.spider))
-(local undotree-plugin (require :plugins.undotree))
-(local unimpaired-plugin (require :plugins.unimpaired))
-
-;(local (sym (.. name :-plugin)) (require (.. ":plugins." (tostring name)))))
-
-; Adding lazy dir to rtp.
+;; Adding lazy dir to rtp.
 (set+ rtp (.. (vim.fn.stdpath :data) :/lazy/lazy.nvim))
 
-; Treesitter config. Might extract into another file later.
-(local nvim-treesitter-plugin
-       {1 :nvim-treesitter/nvim-treesitter
-        :event :VeryLazy
-        :build ":TSUpdate"
-        :config (fn []
-                  (let [treesitter (require :nvim-treesitter.configs)]
-                    (treesitter.setup {:auto_install true
-                                       :highlight {:enable true}
-                                       :indent {:enable true}
-                                       :matchup {:enable true}
-                                       :textsubjects {:enable true
-                                                      :keymaps {:. :textsubjects-smart
-                                                                ";" :textsubjects-container-outer
-                                                                "," :textsubjects-container-inner}}})))})
+;; Set lazy.nvim up.
+((. (require :lazy) :setup) (require :index)
+                            {:performance {:rtp {:disabled_plugins [:gzip
+                                                                    :matchit
+                                                                    :matchparen
+                                                                    :tarPlugin
+                                                                    :tutor
+                                                                    :zipPlugin
+                                                                    :tohtml
+                                                                    :netrwPlugin
+                                                                    :editorconfig]}}})
 
-; LSP integration.
-; (local nvim-lspconfig-plugin {1 :neovim/nvim-lspconfig
-;                               :dependencies [:j-hui/fidget.nvim]
-;                               :config (fn []
-;                                         (map! [n] :<leader>e
-;                                               vim.diagnostic.open_float)
-;                                         ;(let [lspconfig (require :lspconfig)]
-;                                         ;(lspconfig.fennel_ls.setup {}))
-;                                         )})
-
-; Plugins
-(local plugins [:udayvir-singh/tangerine.nvim
-                :udayvir-singh/hibiscus.nvim
-                :jaawerth/fennel.vim
-                {1 :NMAC427/guess-indent.nvim :config true}
-                nvim-treesitter-plugin
-                {1 :rebelot/kanagawa.nvim :opts {:compile true}}
-                :andymass/vim-matchup
-                {1 :kylechui/nvim-surround
-                 :version "*"
-                 :config true
-                 :event :VeryLazy}
-                {1 :m4xshen/autoclose.nvim
-                 :opts {:options {:pair_spaces true}}
-                 :event :VeryLazy}
-                lspconfig-plugin
-                ;alpha-plugin
-                comment-plugin
-                leap-plugin
-                ;coke-plugin
-                deadcolumn-plugin
-                eyeliner-plugin
-                gitsigns-plugin
-                ;indent-lines-plugin
-                reticle-plugin
-                rustaceanvim-plugin
-                scroll-plugin
-                spider-plugin
-                undotree-plugin
-                unimpaired-plugin])
-
-; Set lazy.nvim up.
-(let [lazy (require :lazy)]
-  (lazy.setup plugins))
-
-; Colorscheme :)
+;; Colorscheme :)
 (color! :kanagawa)
 

@@ -18,6 +18,7 @@ return {
 			require 'lsp-inlayhints'.show()
 		end},
 		{ 'dgagn/diagflow.nvim', config = true },
+		-- { 'nvim-telescope/telescope.nvim' },
 	}, -- }}}
 
 	init = function()
@@ -33,7 +34,6 @@ return {
 			server = {
 				on_attach = function(client, bufnr)
 					local opts = { buffer = bufnr, silent = true }
-					local tr = require("trouble")
 
 					vim.keymap.set(
 						'n',
@@ -50,25 +50,17 @@ return {
 					vim.keymap.set('n', '<leader>xx', function()
 						vim.cmd.RustLsp('explainError')
 					end)
-					vim.keymap.set('n', '<leader>q', function()
-						tr.toggle('workspace_diagnostics')
-					end)
 
-					vim.keymap.set('n', 'gd', function() -- {{{ Trouble & Telescope
-						tr.toggle('lsp_definitions')
-						end, opts)
-					vim.keymap.set('n', '<leader>D', function()
-						tr.toggle('lsp_type_definitions')
-						end, opts)
-					vim.keymap.set('n', 'gr', function()
-						tr.toggle('lsp_references')
-						end, opts)
-					-- }}}
+					vim.keymap.set('n', '<leader>q', require 'telescope.builtin'.diagnostics)
+					vim.keymap.set('n', 'gd', require 'telescope.builtin'.lsp_definitions, opts)
+					vim.keymap.set('n', '<leader>D', require 'telescope.builtin'.lsp_type_definitions, opts)
+					vim.keymap.set('n', 'gr', require 'telescope.builtin'.lsp_references, opts)
 
 					-- {{{ Normal mappings
 					vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
 					vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-					vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+					--vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+					vim.keymap.set('n', 'gi', require 'telescope.builtin'.lsp_implementations, opts)
 					vim.keymap.set('n', '<leader>kk', vim.lsp.buf.signature_help, opts)
 					vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
 					-- }}}

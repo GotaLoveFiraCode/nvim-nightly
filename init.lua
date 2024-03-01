@@ -6,7 +6,7 @@ local function bootstrap(url)
 	vim.opt.rtp:prepend(path)
 
 	if vim.fn.isdirectory(path) == 0 then
-		print(name .. ":: Installing in data dir…")
+		print(":: Installing '" .. name .. "' in data dir.")
 		vim.fn.system {"git", "clone", url, path}
 
 		vim.cmd "redraw"
@@ -31,15 +31,15 @@ require 'tangerine'.setup {}
 -- 	performance = {
 -- 		rtp = {
 -- 			disabled_plugins = {
--- 				"gzip",
--- 				"matchit",
--- 				"matchparen",
--- 				"tarPlugin",
--- 				"tutor",
--- 				"zipPlugin",
--- 				"tohtml",
--- 				"netrwPlugin",
--- 				"editorconfig",
+				-- "gzip",
+				-- "matchit",
+				-- "matchparen",
+				-- "tarPlugin",
+				-- "tutor",
+				-- "zipPlugin",
+				-- "tohtml",
+				-- "netrwPlugin",
+				-- "editorconfig",
 -- 			}
 -- 		}
 -- 	}

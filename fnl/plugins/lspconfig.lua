@@ -5,7 +5,7 @@ return {
 	dependencies = { -- {{{
 		-- 'folke/trouble.nvim',
 		-- 'hrsh9th/cmp-nvim-lsp',
-		'nvim-telescope/telescope.nvim',
+		-- 'nvim-telescope/telescope.nvim',
 		'p00f/clangd_extensions.nvim',
 		{ 'j-hui/fidget.nvim', opts = {
 			notification = {
