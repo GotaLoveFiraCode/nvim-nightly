@@ -1,4 +1,4 @@
--- :fennel:1709259519
+-- :fennel:1710012244
 local nvim_treesitter_plugin
 local function _1_()
   return require("nvim-treesitter.configs").setup({auto_install = true, highlight = {enable = true}, indent = {enable = true}, matchup = {enable = true}, textsubjects = {enable = true, keymaps = {["."] = "textsubjects-smart", [";"] = "textsubjects-container-outer", [","] = "textsubjects-container-inner"}}})
@@ -30,8 +30,9 @@ local cmp_plugin = require("plugins.cmp")
 local cmp_plug_plugin = require("plugins.cmp-plug")
 local codeium_plugin = require("plugins.codeium")
 local luasnip_plugin = require("plugins.snip")
+local various_textobjs = require("plugins.textobj")
 local unimpaired_plugin = require("plugins.unimpaired")
 local function _4_()
   return require("nvim_comment").setup({comment_empty = false})
 end
-return {"udayvir-singh/tangerine.nvim", "udayvir-singh/hibiscus.nvim", "jaawerth/fennel.vim", "andymass/vim-matchup", "Bekaboo/deadcolumn.nvim", {"NMAC427/guess-indent.nvim", config = true}, {"rebelot/kanagawa.nvim", opts = {compile = true}}, {"anuvyklack/pretty-fold.nvim", opts = {fill_char = "\194\183"}}, {"kylechui/nvim-surround", version = "*", config = true, event = "VeryLazy"}, {"m4xshen/autoclose.nvim", opts = {options = {pair_spaces = true}}, event = "VeryLazy"}, {"terrortylor/nvim-comment", keys = {{"gcc"}, {"gc", mode = {"n", "v"}}}, config = _4_}, {"norcalli/nvim-colorizer.lua", config = true, keys = {{"<Leader>ct", vim.cmd.ColorizerToggle}, {"<Leader>cc", vim.cmd.ColorizerReloadAllBuffers}}}, {"jinh0/eyeliner.nvim", keys = {"f", "F", "t", "T"}, opts = {highlight_on_key = true, dim = true}}, nvim_cybu_plugin, nvim_telescope_plugin, nvim_treesitter_plugin, leap_plugin, gitsigns_plugin, reticle_plugin, rustaceanvim_plugin, scroll_plugin, spider_plugin, undotree_plugin, cmp_plugin, cmp_plug_plugin, codeium_plugin, luasnip_plugin, unimpaired_plugin}
+return {"udayvir-singh/tangerine.nvim", "udayvir-singh/hibiscus.nvim", "jaawerth/fennel.vim", "andymass/vim-matchup", "Bekaboo/deadcolumn.nvim", {"NMAC427/guess-indent.nvim", config = true}, {"rebelot/kanagawa.nvim", opts = {compile = true}}, {"anuvyklack/pretty-fold.nvim", opts = {fill_char = "\194\183"}}, {"kylechui/nvim-surround", version = "*", config = true, event = "VeryLazy"}, {"m4xshen/autoclose.nvim", opts = {options = {pair_spaces = true}}, event = "VeryLazy"}, {"terrortylor/nvim-comment", keys = {{"gcc"}, {"gc", mode = {"n", "v"}}}, config = _4_}, {"norcalli/nvim-colorizer.lua", config = true, keys = {{"<Leader>ct", vim.cmd.ColorizerToggle}, {"<Leader>cc", vim.cmd.ColorizerReloadAllBuffers}}}, {"jinh0/eyeliner.nvim", keys = {"f", "F", "t", "T"}, opts = {highlight_on_key = true, dim = true}}, nvim_cybu_plugin, nvim_telescope_plugin, nvim_treesitter_plugin, leap_plugin, gitsigns_plugin, reticle_plugin, rustaceanvim_plugin, scroll_plugin, spider_plugin, undotree_plugin, cmp_plugin, cmp_plug_plugin, codeium_plugin, luasnip_plugin, unimpaired_plugin, various_textobjs}

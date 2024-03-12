@@ -72,6 +72,7 @@
       cmp-plug-plugin (require :plugins.cmp-plug)
       codeium-plugin (require :plugins.codeium)
       luasnip-plugin (require :plugins.snip)
+      various-textobjs (require :plugins.textobj)
       unimpaired-plugin (require :plugins.unimpaired)]
   [:udayvir-singh/tangerine.nvim
    :udayvir-singh/hibiscus.nvim
@@ -115,5 +116,6 @@
    codeium-plugin
    luasnip-plugin
    ;nvim-sg-plugin ; Can’t login.
-   unimpaired-plugin])
+   unimpaired-plugin
+   various-textobjs])
 
