@@ -67,7 +67,7 @@ end)
 -- }}}
 
 -- keymaps… {{{
-vim.keymap.set('n', '<C-s>', vim.cmd.w)
+vim.keymap.set('n', '<C-s>', vim.cmd.up)
 vim.keymap.set('n', '<M-u>', vim.cmd.noh)
 vim.keymap.set({'n', 'v'}, '<C-p>', '"+')
 
